@@ -10,11 +10,8 @@ import (
 
 func main() {
 	config.Carregar()
-
-	fmt.Println(config.StringConexaoBanco)
-	fmt.Println("Starting api...")
-
 	r := router.Generate()
 
+	fmt.Printf("Listening on port %d", config.Porta)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Porta), r))
 }
